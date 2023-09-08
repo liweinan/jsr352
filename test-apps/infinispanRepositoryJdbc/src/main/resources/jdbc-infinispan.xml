@@ -31,7 +31,7 @@ SPDX-License-Identifier: EPL-2.0
         <distributed-cache name="JOB_INSTANCE" mode="ASYNC" l1-lifespan="0">
             <persistence>
                 <jdbc:string-keyed-jdbc-store fetch-state="false" read-only="false" purge="false">
-                    <jdbc:connection-pool connection-url="jdbc:h2:mem:infinispan_string_based;DB_CLOSE_DELAY=-1"
+                    <jdbc:connection-pool connection-url="jdbc:h2:file:/tmp/jberet.h2;DB_CLOSE_DELAY=-1"
                                      username="sa" driver="org.h2.Driver"/>
                     <jdbc:string-keyed-table drop-on-exit="false" create-on-start="true" prefix="JBERET_ISPN">
                         <jdbc:id-column name="ID_COLUMN" type="VARCHAR(255)"/>
@@ -46,7 +46,7 @@ SPDX-License-Identifier: EPL-2.0
         <distributed-cache name="JOB_EXECUTION" mode="ASYNC" l1-lifespan="0">
             <persistence>
                 <jdbc:string-keyed-jdbc-store fetch-state="false" read-only="false" purge="false">
-                    <jdbc:connection-pool connection-url="jdbc:h2:mem:infinispan_string_based;DB_CLOSE_DELAY=-1"
+                    <jdbc:connection-pool connection-url="jdbc:h2:file:/tmp/jberet.h2;DB_CLOSE_DELAY=-1"
                                      username="sa" driver="org.h2.Driver"/>
                     <jdbc:string-keyed-table drop-on-exit="false" create-on-start="true" prefix="JBERET_ISPN">
                         <jdbc:id-column name="ID_COLUMN" type="VARCHAR(255)"/>
@@ -61,7 +61,7 @@ SPDX-License-Identifier: EPL-2.0
         <distributed-cache name="STEP_EXECUTION" mode="ASYNC" l1-lifespan="0">
             <persistence>
                 <jdbc:string-keyed-jdbc-store fetch-state="false" read-only="false" purge="false">
-                    <jdbc:connection-pool connection-url="jdbc:h2:mem:infinispan_string_based;DB_CLOSE_DELAY=-1"
+                    <jdbc:connection-pool connection-url="jdbc:h2:file:/tmp/jberet.h2;DB_CLOSE_DELAY=-1"
                                      username="sa" driver="org.h2.Driver"/>
                     <jdbc:string-keyed-table drop-on-exit="false" create-on-start="true" prefix="JBERET_ISPN">
                         <jdbc:id-column name="ID_COLUMN" type="VARCHAR(255)"/>
@@ -76,7 +76,7 @@ SPDX-License-Identifier: EPL-2.0
         <distributed-cache name="PARTITION_EXECUTION" mode="ASYNC" l1-lifespan="0">
             <persistence>
                 <jdbc:string-keyed-jdbc-store fetch-state="false" read-only="false" purge="false">
-                    <jdbc:connection-pool connection-url="jdbc:h2:mem:infinispan_string_based;DB_CLOSE_DELAY=-1"
+                    <jdbc:connection-pool connection-url="jdbc:h2:file:/tmp/jberet.h2;DB_CLOSE_DELAY=-1"
                                      username="sa" driver="org.h2.Driver"/>
                     <jdbc:string-keyed-table drop-on-exit="false" create-on-start="true" prefix="JBERET_ISPN">
                         <jdbc:id-column name="ID_COLUMN" type="VARCHAR(255)"/>
@@ -92,7 +92,7 @@ SPDX-License-Identifier: EPL-2.0
             <transaction mode="BATCH" locking="PESSIMISTIC"/>
             <persistence>
                 <jdbc:string-keyed-jdbc-store fetch-state="false" read-only="false" purge="false">
-                    <jdbc:connection-pool connection-url="jdbc:h2:mem:infinispan_string_based;DB_CLOSE_DELAY=-1"
+                    <jdbc:connection-pool connection-url="jdbc:h2:file:/tmp/jberet.h2;DB_CLOSE_DELAY=-1"
                                      username="sa" driver="org.h2.Driver"/>
                     <jdbc:string-keyed-table drop-on-exit="false" create-on-start="true" prefix="JBERET_ISPN">
                         <jdbc:id-column name="ID_COLUMN" type="VARCHAR(255)"/>
