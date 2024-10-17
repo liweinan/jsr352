@@ -23,9 +23,12 @@ import org.jberet.job.model.RefArtifact;
 import org.jberet.runtime.JobExecutionImpl;
 import org.jberet.runtime.context.JobContextImpl;
 import org.jberet.spi.JobTask;
+import org.jboss.logging.Logger;
 
 public final class JobExecutionRunner extends CompositeExecutionRunner<JobContextImpl> implements JobTask {
     private final Job job;
+
+    Logger logger = Logger.getLogger(JobExecutionRunner.class);
 
     public JobExecutionRunner(final JobContextImpl jobContext) {
         super(jobContext, null);
@@ -40,6 +43,8 @@ public final class JobExecutionRunner extends CompositeExecutionRunner<JobContex
     @Override
     public void run() {
         final JobExecutionImpl jobExecution = batchContext.getJobExecution();
+
+        logger.infof("job run: %s", jobExecution.dump());
 
         // the job may be stopped right after starting
         if (jobExecution.getBatchStatus() != BatchStatus.STOPPING) {

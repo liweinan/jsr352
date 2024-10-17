@@ -22,6 +22,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+
 import jakarta.batch.operations.JobStartException;
 import jakarta.batch.runtime.BatchStatus;
 import jakarta.batch.runtime.JobExecution;
@@ -239,6 +240,7 @@ public final class JobExecutionImpl extends AbstractExecution implements JobExec
 
     /**
      * Sets the user who started this job execution.
+     *
      * @param user the user who started this job execution; may be null
      * @since 1.2.2
      * @since 1.3.0.Beta4
@@ -363,5 +365,13 @@ public final class JobExecutionImpl extends AbstractExecution implements JobExec
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         in.defaultReadObject();
         jobStopNotificationListeners = new ArrayList<>();
+    }
+
+    public String dump() {
+        return String.format("executionId: %s, jobName: %s, batchStatus: %s, exitStatus: %s",
+                this.getExecutionId(),
+                this.getJobName(),
+                this.getBatchStatus(),
+                this.getExitStatus());
     }
 }
